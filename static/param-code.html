@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户登录</title>
+    <meta charset='utf-8'>
+    <link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'>
+    <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style></style>
+</head>
+<body>
+<div id='preview-contents' class='note-content'>
+    <div id="wmd-preview" class="preview-content">
+        <h3>参数类型解释</h3>
+        <p>参数名 &nbsp; (必填/可填) &nbsp; <u>参数类型</u></p>
+        <pre>
+    'password': (
+        "is too short", (lambda x: len(x) >= 8),
+        "is too long", (lambda x: len(x) <= 64),
+    ),
+    'email': (
+        "format error", isEmail,
+    ),
+    's': (
+        "is empty", (lambda x: x),
+    ),
+    'n': (
+        "value error", (lambda x: x >= 0),
+    ),
+    'b': (
+        "value error", (lambda x: x == 0 or x == 1),
+    ),
+    'restMethod': (
+        "value error", (lambda x: x in config.REST_METHODS),
+    ),
+    'float': (
+        "value error", (lambda x: isinstance(x, float)),
+    ),
+    'json': (
+        "json format error", (lambda x: x != -1),
+    ),
+    'promoCategory': (
+        "undefined promo category", (lambda x: x in config.PROMO_CATEGORYS),
+    ),
+
+PROMO_CATEGORYS = [u'秒杀', u'拼客']
+REST_METHODS = ['GET', 'POST', 'DELETE']
+DEFAULT_PAGE_SIZE = 10
+        </pre>
+    </div>
+</div>
+</body>
+</html>
